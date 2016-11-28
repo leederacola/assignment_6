@@ -18,8 +18,8 @@ public class ass_6
     public int[][] adjacency;// = new int[CITI][CITI];
     public int bestCost = Integer.MAX_VALUE; //start with the highest possivbile int
 
-    // constructor of Lab5 object   required n (no of cities)
-    public Lab5(int N)
+    // constructor of ass6 object   required n (no of cities)
+    public ass_6(int N)
     {
         CITI = N;
         adjacency = new int[CITI][CITI];
@@ -114,6 +114,59 @@ public class ass_6
         }
 
     }
+	
+	
+	public void tspStack
+	{
+		boolean minFlag = false;
+		int closestCity;
+		Stack<int> stackPath = new Stack<>();
+		int[] visitedCities = new int[CITI];
+		 int currentCity;
+		//assume start city is city 0?  ok
+		//set city 0 as visitedCities array?
+		visitedCities[0] = 0;
+		//push city 0 to stack.
+		stackPath.push(0);
+		//output start city.
+		System.out.println(0);
+		
+		while (!stackPath.empty())
+		{
+			//set currentCity with top value of pathStack
+			currentCity = 0;
+			//set min to Integer.MAX_VALUE //minimum distance
+			int min = Integer.MAX_VALUE;
+			//for all the remaining cities starting city 1 to N do
+			for (int i = 1; i < N; i++)
+			{
+				//if (distance from currentCity to city i is not 0 AND city i is not visited)
+				if( adjacency[currentCity][i] != 0 && visitedCities[i] = null)
+				{	
+					//if (distance from currentCity to city i is less than min)
+					if( adjacency[currentCity][i] < min)
+					{
+						min = adjacency[currentCity][i];
+						closestCity = i;
+						minFlag = true;
+					}
+				}		
+			}
+			if(minFlag)//is true
+			{
+				visitedCities[closestCity] = 1;
+				stackPath.push(closestCity);
+				System.out.println(closestCity);
+				minFlag = true;
+			}
+			//pop the top element from pathStack
+			pathStack.pop();	
+		}
+		
+		
+		
+		
+	}
 
 }
 
